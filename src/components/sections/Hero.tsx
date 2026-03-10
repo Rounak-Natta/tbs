@@ -21,10 +21,7 @@ export default function Hero() {
 
       {/* Hero Content */}
       <div className="hero-content">
-
-        <p className="hero-welcome">
-          WELCOME TO BANDHAN SCHOOL
-        </p>
+        <p className="hero-welcome">WELCOME TO BANDHAN SCHOOL</p>
 
         <h1 className="hero-title">
           Start Your Beautiful <br />
@@ -38,10 +35,7 @@ export default function Hero() {
           last 20 years.
         </p>
 
-        <Link href="#" className="hero-btn">
-          Know More →
-        </Link>
-
+        <Link href="#" className="hero-btn">Know More →</Link>
       </div>
 
       {/* Bottom Cards */}
@@ -49,35 +43,28 @@ export default function Hero() {
 
         <div className="hero-card">
           <div className="card-icon">
-            <i className="fas fa-graduation-cap"></i>
+            <Image src="/graduation.png" alt="Graduation Hat" width={40} height={40} />
           </div>
-
           <div className="card-number">01</div>
-
           <h3>English Medium</h3>
           <p>There are many variations of passages</p>
         </div>
 
-
         <div className="hero-card">
           <div className="card-icon">
-            <i className="fas fa-school"></i>
+            <Image src="/bag.png" alt="School Bag" width={40} height={40} />
           </div>
-
           <div className="card-number">02</div>
-
           <h3>Co-Ed School</h3>
           <p>There are many variations of passages</p>
         </div>
 
-
         <div className="hero-card">
           <div className="card-icon">
-            <i className="fas fa-pencil-alt"></i>
+            <Image src="/pencil.png" alt="Pencil Icon" width={40} height={40} />
           </div>
-
           <div className="card-number">03</div>
-          <h3>CBSE Curriculum</h3>
+          <h3>CBSE Curriculums</h3>
           <p>There are many variations of passages</p>
         </div>
 

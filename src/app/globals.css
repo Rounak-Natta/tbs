@@ -261,18 +261,14 @@ select {
 .contact:hover {
   opacity: 0.9;
 }
-/* =================================
+/* =========================
    HERO SECTION
-================================= */
-
+========================= */
 .hero {
   position: relative;
   height: 520px;
   width: 100%;
 }
-
-
-/* Background */
 
 .hero-bg {
   position: absolute;
@@ -282,9 +278,6 @@ select {
 .hero-img {
   object-fit: cover;
 }
-
-
-/* Overlay */
 
 .hero-overlay {
   position: absolute;
@@ -297,21 +290,16 @@ select {
   );
 }
 
-
-/* Content */
-
 .hero-content {
   position: relative;
   z-index: 2;
-
   max-width: 600px;
   padding: 90px 60px;
-
   color: white;
 }
 
 .hero-welcome {
-  color: var(--tbs-yellow);
+  color: #fed20b;
   font-weight: 600;
   margin-bottom: 10px;
 }
@@ -323,7 +311,7 @@ select {
 }
 
 .hero-title span {
-  color: var(--tbs-yellow);
+  color: #fed20b;
 }
 
 .hero-desc {
@@ -333,14 +321,10 @@ select {
   margin-bottom: 25px;
 }
 
-
-/* Button */
-
 .hero-btn {
   display: inline-block;
-  background: var(--tbs-yellow);
+  background: #fed20b;
   color: #111;
-
   padding: 10px 18px;
   border-radius: 4px;
   font-weight: 500;
@@ -350,37 +334,50 @@ select {
   opacity: 0.9;
 }
 
-
-/* ===============================
+/* =========================
    HERO CARDS
-================================ */
-
+========================= */
 .hero-cards {
   position: absolute;
   bottom: -70px;
   left: 60%;
   transform: translateX(-50%);
-
   display: flex;
   gap: 25px;
   z-index: 3;
 }
 
-
-/* Card */
-
 .hero-card {
-  background: var(--tbs-green-light);
+  background: var(--tbs-green-light); /* dark background for white text */
   color: white;
-
   width: 280px;
   padding: 28px;
-
   border-radius: 14px 14px 14px 0;
-
   position: relative;
-
   box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.hero-card h3,
+.hero-card p,
+.card-number {
+  color: white;
+}
+
+.card-number {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: 700;
+  opacity: 0.3;
+}
+
+.card-icon img {
+  width: 40px;
+  height: 40px;
+margin: 5px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* makes dark PNGs white */
 }
 
 .hero-card h3 {
@@ -389,17 +386,4 @@ select {
 
 .hero-card p {
   font-size: 13px;
-}
-
-
-/* Number */
-
-.card-number {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-
-  font-size: 28px;
-  font-weight: 700;
-  opacity: 0.3;
 }
