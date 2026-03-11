@@ -55,6 +55,7 @@ html,
 body {
   width: 100%;
   height: 100%;
+  overflow-x: hidden; /* Prevents horizontal scroll */
 }
 
 body {
@@ -63,6 +64,7 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  position: relative;
 }
 
 
@@ -83,6 +85,7 @@ ol {
 img {
   max-width: 100%;
   display: block;
+  height: auto; /* Ensures images maintain aspect ratio */
 }
 
 button {
@@ -110,6 +113,9 @@ select {
   font-size: 16px;
   background: var(--tbs-green);
   line-height: 1;
+  flex-wrap: wrap; /* Allows wrapping on very small screens */
+  position: relative;
+  z-index: 10; /* Ensures topbar stays above */
 }
 
 
@@ -120,12 +126,12 @@ select {
   color: #111;
   padding: 10px 20px;
   border-top-right-radius: 8px;
-  /* border-bottom-right-radius: 2px; */
   display: flex;
   align-items: center;
   gap: 8px;
   background: var(--tbs-yellow);
   font-weight: 500;
+  min-width: fit-content; /* Prevents content from being squished */
 }
 
 
@@ -135,11 +141,11 @@ select {
   flex: 1;
   background: var(--tbs-green);
   padding: 20px;
-
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 15px;
+  flex-wrap: wrap; /* Allows wrapping on small screens */
 }
 
 
@@ -147,12 +153,11 @@ select {
 
 .top-links a {
   color: #fff;
-
   display: flex;
   align-items: center;
   gap: 6px;
-
   font-weight: 500;
+  white-space: nowrap; /* Prevents text wrapping inside links */
 }
 
 
@@ -179,12 +184,13 @@ select {
 .navbar {
   width: 100%;
   padding: 0px 40px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   background: white;
+  flex-wrap: wrap; /* Allows navbar to wrap on smaller screens */
+  position: relative;
+  z-index: 9; /* Below topbar but above hero background */
 }
 
 
@@ -193,11 +199,11 @@ select {
 .nav-logo {
   display: flex;
   align-items: center;
-
 }
 .nav-logo img{
   height: 120px;
   width: auto;
+  max-width: 100%; /* Ensures logo doesn't overflow */
 } 
 
 /* MENU */
@@ -206,22 +212,26 @@ select {
   display: flex;
   align-items: center;
   gap: 35px;
-
   font-weight: 500;
   font-size: 15px;
+  flex-wrap: wrap; /* Allows menu items to wrap */
+  justify-content: center;
 }
 
 .nav-menu a {
   color: #111;
   transition: color 0.25s ease;
+  white-space: nowrap; /* Prevents text wrapping in menu items */
 }
 
 .nav-menu a:hover {
   color: var(--topbar-green);
 }
+
 .nav-buttons{
   display: flex;
   gap: 10px;
+  flex-wrap: wrap; /* Allows buttons to wrap */
 }
 
 
@@ -232,6 +242,7 @@ select {
   font-size: 14px;
   font-weight: 500;
   transition: all 0.25s ease;
+  white-space: nowrap; /* Prevents button text wrapping */
 }
 
 
@@ -240,7 +251,6 @@ select {
 .admission {
   background: var(--tbs-yellow);
   color: #111;
-
   border-radius: 10px 10px 0px 10px;
 }
 
@@ -254,13 +264,13 @@ select {
 .contact {
   background: var(--tbs-green);
   color: white;
-
   border-radius: 10px 10px 10px 0px;
 }
 
 .contact:hover {
   opacity: 0.9;
 }
+
 /* =========================
    HERO SECTION
 ========================= */
@@ -268,32 +278,42 @@ select {
   position: relative;
   height: 520px;
   width: 100%;
-  margin-bottom: 100px;
+  margin-bottom: 150px; /* Increased to give space for cards */
+  overflow: visible; /* Changed from hidden to visible so cards can be seen */
+  z-index: 1; /* Lower z-index so cards can appear above */
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 .hero-img {
   object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(
     to right,
     rgba(30, 30, 30, 1) 30%,      
     rgba(30, 30, 30, 0.7) 50%,   
     rgba(30, 30, 30, 0) 80%      
   );
+  z-index: 2;
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3; /* Higher than overlay */
   max-width: 600px;
   padding: 90px 60px;
   color: white;
@@ -345,17 +365,21 @@ select {
   transform: translateX(-50%);
   display: flex;
   gap: 25px;
-  z-index: 3;
+  z-index: 10; /* Higher than hero content to ensure they're in front */
+  width: max-content;
+  max-width: calc(100% - 40px); /* Prevents overflow on small screens */
 }
 
 .hero-card {
   background: var(--tbs-green-light); 
   color: white;
   width: 280px;
+  min-width: 250px; /* Sets a minimum width */
   padding: 28px;
   border-radius: 14px 14px 14px 0;
   position: relative;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* Enhanced shadow for better visibility */
+  z-index: 11; /* Even higher to ensure they're above */
 }
 
 .hero-card h3,
@@ -371,6 +395,7 @@ select {
   font-size: 40px;
   font-weight: 700;
   opacity: 0.3;
+  z-index: 12;
 }
 
 .card-icon img {
@@ -401,6 +426,9 @@ select {
   max-width: 1400px;
   margin: 130px auto 50px;
   padding: 0 40px;
+  width: 100%;
+  position: relative;
+  z-index: 5; /* Lower than cards but above background */
 }
 
 /* ===== LEFT COLUMNS (Image Grid) ===== */
@@ -416,6 +444,7 @@ select {
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-width: 0; /* Prevents flex item from overflowing */
 }
 
 .left-column-one img {
@@ -424,7 +453,7 @@ select {
   object-fit: cover;
   border-radius: 30px 30px 0px 30px;
   box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
-  margin-bottom: 20px; /* This creates the 20px gap after the image */
+  margin-bottom: 20px;
 }
 
 .about-badge {
@@ -436,7 +465,7 @@ select {
   background: var(--tbs-yellow);
   border-radius: 25px 25px 25px 0px;
   box-shadow: 0 10px 20px rgba(254, 210, 11, 0.2);
-  /* Removed margin-top since we're using margin-bottom on the image */
+  width: 100%; /* Ensures badge takes full width */
 }
 
 .about-badge i {
@@ -469,6 +498,7 @@ select {
   justify-content: space-between;
   align-items: center;
   flex: 1;
+  min-width: 0; /* Prevents flex item from overflowing */
 }
 
 .circle-border {
@@ -480,6 +510,7 @@ select {
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  max-width: 100%; /* Ensures circle doesn't overflow */
 }
 
 .circle-img {
@@ -491,6 +522,7 @@ select {
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  max-width: 100%; /* Ensures image doesn't overflow */
 }
 
 .imagetwo {
@@ -534,6 +566,7 @@ select {
   line-height: 1.2;
   margin: 25px 0 20px;
   color: #1a1a1a;
+  max-width: 100%; /* Ensures title doesn't overflow */
 }
 
 .about-title span {
@@ -550,6 +583,7 @@ select {
   margin-bottom: 35px;
   max-width: 600px;
   font-weight: 400;
+  width: 100%; /* Takes full width of parent */
 }
 
 .about-btn {
@@ -564,6 +598,7 @@ select {
   font-size: 18px;
   transition: all 0.3s ease;
   box-shadow: 0 8px 20px rgba(31, 107, 53, 0.3);
+  max-width: 100%; /* Prevents button from overflowing */
 }
 
 .about-btn i {
@@ -583,6 +618,18 @@ select {
 /* ======================================
    RESPONSIVENESS
 ====================================== */
+
+@media (max-width: 1400px) {
+  .hero-cards {
+    gap: 15px;
+    left: 58%; /* Slightly adjust for medium screens */
+  }
+  
+  .hero-card {
+    width: 260px;
+    min-width: 240px;
+  }
+}
 
 @media (max-width: 1200px) {
   .about-section {
@@ -609,6 +656,17 @@ select {
     width: 170px;
     height: 170px;
   }
+  
+  .hero-cards {
+    left: 55%; /* Adjust for medium screens */
+    gap: 15px;
+  }
+  
+  .hero-card {
+    width: 240px;
+    min-width: 220px;
+    padding: 24px;
+  }
 }
 
 @media (max-width: 992px) {
@@ -633,11 +691,106 @@ select {
   .imagetwo {
     max-height: 300px;
   }
+  
+  /* Keep hero cards absolute but adjust positioning */
+  .hero {
+    margin-bottom: 120px; /* Give more space for cards */
+  }
+  
+  .hero-cards {
+    left: 50%;
+    bottom: -60px;
+    gap: 20px;
+  }
+  
+  .hero-card {
+    width: 220px;
+    min-width: 200px;
+    padding: 20px;
+  }
+  
+  .navbar {
+    padding: 0px 30px;
+    gap: 15px;
+  }
+  
+  .nav-menu {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-mail {
+    flex: 0 0 100%; /* Takes full width on mobile */
+    border-top-right-radius: 0;
+    justify-content: center;
+  }
+  
+  .top-links {
+    flex: 0 0 100%;
+    justify-content: center;
+    padding: 15px;
+  }
+  
+  .navbar {
+    padding: 0px 20px;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .nav-menu {
+    order: 3; /* Moves menu to bottom on mobile */
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .hero-content {
+    padding: 60px 30px;
+    max-width: 100%;
+  }
+  
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .hero-desc {
+    max-width: 100%;
+  }
+  
+  /* Stack cards vertically on tablet/mobile */
+  .hero-cards {
+    position: relative;
+    left: 0;
+    bottom: -40px;
+    transform: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .hero-card {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .about-section {
+    padding: 0 20px;
+    margin-top: 180px; /* Push about section down to account for stacked cards */
+  }
 }
 
 @media (max-width: 576px) {
   .about-left {
     flex-direction: column;
+  }
+  
+  .left-column-one,
+  .left-column-two {
+    width: 100%;
   }
   
   .circle-border {
@@ -651,5 +804,79 @@ select {
   .about-btn {
     padding: 12px 24px;
     font-size: 16px;
+  }
+  
+  .nav-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .btn {
+    flex: 1;
+    text-align: center;
+    max-width: 150px;
+  }
+  
+  .hero-content {
+    padding: 40px 20px;
+  }
+  
+  .hero-title {
+    font-size: 30px;
+  }
+  
+  .hero-desc {
+    max-width: 100%;
+  }
+  
+  .top-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .divider {
+    display: none; /* Hides dividers on mobile */
+  }
+  
+  .hero-cards {
+    bottom: -30px;
+  }
+  
+  .hero-card {
+    padding: 20px;
+  }
+  
+  .about-section {
+    margin-top: 200px; /* More space for stacked cards on mobile */
+  }
+}
+
+/* Fix for very small screens */
+@media (max-width: 400px) {
+  .nav-menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .nav-menu a {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .hero-card {
+    padding: 18px;
+  }
+  
+  .about-badge {
+    padding: 20px;
+  }
+  
+  .about-badge i {
+    font-size: 30px;
+  }
+  
+  .hero-title {
+    font-size: 26px;
   }
 }
