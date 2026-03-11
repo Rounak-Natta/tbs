@@ -7,18 +7,20 @@ export default function Hero() {
 
       {/* Background Image */}
       <div className="hero-bg">
-        <Image
-          src="/tbs-hero.jpg"
-          alt="Bandhan School"
-          fill
-          priority
-          className="hero-img"
-        />
-      </div>
+  <Image
+    src="/tbs-hero.png"
+    alt="Bandhan School"
+    fill
+    priority
+    style={{
+      objectFit: 'cover',
+      transform: 'translateX(160px)', 
+    }}
+  />
+</div>
 
       {/* Overlay */}
       <div className="hero-overlay"></div>
-
       {/* Hero Content */}
       <div className="hero-content">
         <p className="hero-welcome">WELCOME TO BANDHAN SCHOOL</p>
@@ -40,7 +42,6 @@ export default function Hero() {
 
       {/* Bottom Cards */}
       <div className="hero-cards">
-
         <div className="hero-card">
           <div className="card-icon">
             <Image src="/graduation.png" alt="Graduation Hat" width={40} height={40} />
@@ -67,9 +68,7 @@ export default function Hero() {
           <h3>CBSE Curriculums</h3>
           <p>There are many variations of passages</p>
         </div>
-
       </div>
-
     </section>
   );
 }

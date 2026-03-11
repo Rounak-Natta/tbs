@@ -268,6 +268,7 @@ select {
   position: relative;
   height: 520px;
   width: 100%;
+  margin-bottom: 100px;
 }
 
 .hero-bg {
@@ -284,9 +285,9 @@ select {
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(0,0,0,0.85) 30%,
-    rgba(0,0,0,0.35) 60%,
-    transparent
+    rgba(30, 30, 30, 1) 30%,      
+    rgba(30, 30, 30, 0.7) 50%,   
+    rgba(30, 30, 30, 0) 80%      
   );
 }
 
@@ -348,7 +349,7 @@ select {
 }
 
 .hero-card {
-  background: var(--tbs-green-light); /* dark background for white text */
+  background: var(--tbs-green-light); 
   color: white;
   width: 280px;
   padding: 28px;
@@ -375,9 +376,9 @@ select {
 .card-icon img {
   width: 40px;
   height: 40px;
-margin: 5px;
+  margin: 5px;
   object-fit: contain;
-  filter: brightness(0) invert(1); /* makes dark PNGs white */
+  filter: brightness(0) invert(1); 
 }
 
 .hero-card h3 {
@@ -386,4 +387,269 @@ margin: 5px;
 
 .hero-card p {
   font-size: 13px;
+}
+
+/* ======================================
+   ABOUT SECTION (Exact Design Match)
+====================================== */
+
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1400px;
+  margin: 130px auto 50px;
+  padding: 0 40px;
+}
+
+/* ===== LEFT COLUMNS (Image Grid) ===== */
+.about-left {
+  width: 50%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 25px;
+}
+
+.left-column-one {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.left-column-one img {
+  height: 320px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 30px 30px 0px 30px;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px; /* This creates the 20px gap after the image */
+}
+
+.about-badge {
+  display: flex;
+  gap: 15px;
+  padding: 32px 30px;
+  align-items: center;
+  justify-content: center;
+  background: var(--tbs-yellow);
+  border-radius: 25px 25px 25px 0px;
+  box-shadow: 0 10px 20px rgba(254, 210, 11, 0.2);
+  /* Removed margin-top since we're using margin-bottom on the image */
+}
+
+.about-badge i {
+  font-size: 38px;
+  color: #111;
+}
+
+.about-badge div {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-badge strong {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111;
+}
+
+.about-badge p {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+.left-column-two {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.circle-border {
+  width: 220px;
+  height: 220px;
+  border: 2px dashed var(--tbs-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.circle-img {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background-image: url('/abtimg1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+}
+
+.imagetwo {
+  height: 380px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0px 30px 30px 30px;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== RIGHT CONTENT ===== */
+.about-right {
+  width: 50%;
+  padding-left: 20px;
+}
+
+.about-subtitle {
+  color: var(--tbs-green);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.about-subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 60%;
+  height: 3px;
+  background: var(--tbs-yellow);
+  border-radius: 2px;
+}
+
+.about-title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 25px 0 20px;
+  color: #1a1a1a;
+}
+
+.about-title span {
+  color: var(--tbs-yellow);
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 8px;
+}
+
+.about-desc {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 35px;
+  max-width: 600px;
+  font-weight: 400;
+}
+
+.about-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--tbs-green);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 40px 40px 40px 0;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(31, 107, 53, 0.3);
+}
+
+.about-btn i {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.about-btn:hover {
+  background: #0c4d23;
+  gap: 15px;
+}
+
+.about-btn:hover i {
+  transform: translateX(5px);
+}
+
+/* ======================================
+   RESPONSIVENESS
+====================================== */
+
+@media (max-width: 1200px) {
+  .about-section {
+    gap: 40px;
+    padding: 0 30px;
+  }
+  
+  .about-title {
+    font-size: 42px;
+  }
+  
+  .left-column-one img,
+  .imagetwo {
+    height: auto;
+    max-height: 260px;
+  }
+  
+  .circle-border {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .circle-img {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-section {
+    flex-direction: column;
+  }
+  
+  .about-left,
+  .about-right {
+    width: 100%;
+  }
+  
+  .about-right {
+    padding-left: 0;
+  }
+  
+  .about-title {
+    font-size: 38px;
+  }
+  
+  .left-column-one img,
+  .imagetwo {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-left {
+    flex-direction: column;
+  }
+  
+  .circle-border {
+    margin: 20px auto;
+  }
+  
+  .about-title {
+    font-size: 32px;
+  }
+  
+  .about-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
 }
