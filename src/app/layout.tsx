@@ -3,8 +3,8 @@ import Topbar from "@/components/layout/Topbar";
 import Navbar from "@/components/layout/Navbar";
 
 export const metadata = {
-  title: "BSB",
-  description: "BSB Project",
+  title: "TBS",
+  description: "TBS Project",
 };
 
 export default function RootLayout({
