@@ -1,10 +1,14 @@
-"use client"
+"use client";
+
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
 import Form from "@/components/sections/Form";
 import Footer from "@/components/layout/Footer";
 
 const Gallery = () => {
-const [selectedImg, setSelectedImg] = useState<string | null>(null);
+  const [selectedImg, setSelectedImg] = useState<string | null>(null);
+
   const images = [
     "/gallery1.avif",
     "/gallery2.png",
@@ -28,41 +32,73 @@ const [selectedImg, setSelectedImg] = useState<string | null>(null);
         </div>
 
         {/* GRID */}
-        <div className="gallery-grid">
+        <motion.div
+          className="gallery-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.12,
+              },
+            },
+          }}
+        >
           {images.map((img, index) => (
-            <div 
-              className="gallery-card" 
+            <motion.div
+              className="gallery-card"
               key={index}
               onClick={() => setSelectedImg(img)}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.05 }}
             >
               <img src={img} alt={`gallery-${index}`} />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* LIGHTBOX */}
-        {selectedImg && (
-          <div className="lightbox">
-            <span 
-              className="close-btn"
-              onClick={() => setSelectedImg(null)}
+        <AnimatePresence>
+          {selectedImg && (
+            <motion.div
+              className="lightbox"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
             >
-              &times;
-            </span>
+              {/* BACKGROUND */}
+              <div
+                className="lightbox-bg"
+                onClick={() => setSelectedImg(null)}
+              ></div>
 
-            <img 
-              src={selectedImg} 
-              alt="preview"
-              onClick={(e) => e.stopPropagation()}
-            />
+              {/* IMAGE */}
+              <motion.img
+                src={selectedImg}
+                alt="preview"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                onClick={(e) => e.stopPropagation()}
+              />
 
-            {/* Click outside to close */}
-            <div 
-              className="lightbox-bg"
-              onClick={() => setSelectedImg(null)}
-            ></div>
-          </div>
-        )}
+              {/* CLOSE */}
+              <span
+                className="close-btn"
+                onClick={() => setSelectedImg(null)}
+              >
+                &times;
+              </span>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
       </section>
 
