@@ -8,7 +8,7 @@ export default function Navbar() {
       {/* LEFT - LOGO */}
       <div className="nav-logo">
         <Link href="/"><Image
-          src="/bsblogo.png"
+          src="/tbslogo.png"
           alt="Bandhan School Logo"
           width={120}
           height={50}

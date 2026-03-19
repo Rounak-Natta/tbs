@@ -1855,3 +1855,202 @@ LIGHTBOX
     grid-template-columns:1fr;
   }
 }
+/* ===============================
+CONTACT SECTION (FINAL DESIGN)
+=============================== */
+
+.contact-section{
+  padding:80px 50px 60px;
+  background:#f5f5f5;
+}
+
+/* CONTAINER */
+
+.contact-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  gap:50px;
+  align-items:flex-start;
+}
+
+/* ================= LEFT CARD ================= */
+
+.contact-card{
+  flex:1;
+  background:#ededed;
+  padding:35px 30px;
+  border-radius:20px;
+}
+
+/* ROW */
+
+.contact-row{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  margin-bottom:22px;
+}
+
+/* ICON */
+
+.contact-row .icon{
+  width:36px;
+  height:36px;
+  background:var(--tbs-green);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:13px;
+  flex-shrink:0;
+}
+
+/* TEXT */
+
+.contact-row p{
+  font-size:14px;
+  color:#2d2d2d;
+  line-height:1.6;
+  font-weight:500;
+}
+
+/* SOCIAL */
+
+.socials{
+  display:flex;
+  gap:12px;
+  margin-top:25px;
+}
+
+.socials span{
+  width:34px;
+  height:34px;
+  background:var(--tbs-green);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  cursor:pointer;
+  transition:0.25s;
+}
+
+.socials span:hover{
+  transform:translateY(-2px);
+}
+
+/* ================= RIGHT SIDE ================= */
+
+.contact-form-box{
+  flex:1.2;
+}
+
+/* TITLE */
+
+.contact-form-box h3{
+  font-size:26px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+/* DESC */
+
+.contact-form-box p{
+  font-size:14px;
+  color:#7a7a7a;
+  margin-bottom:25px;
+  line-height:1.6;
+}
+
+/* INPUT ROW */
+
+.input-row{
+  display:flex;
+  gap:15px;
+}
+
+/* INPUTS */
+
+.contact-form-box input,
+.contact-form-box textarea{
+  width:100%;
+  padding:14px 16px;
+  border-radius:10px;
+  border:1px solid #e3e3e3;
+  background:#fafafa;
+  font-size:14px;
+  transition:0.25s;
+}
+
+/* FOCUS */
+
+.contact-form-box input:focus,
+.contact-form-box textarea:focus{
+  border-color:var(--tbs-green);
+  background:#fff;
+}
+
+/* SUBJECT SPACING */
+
+.contact-form-box input[type="text"]:not(:first-child){
+  margin-top:15px;
+}
+
+/* TEXTAREA */
+
+.contact-form-box textarea{
+  height:130px;
+  resize:none;
+  margin-top:15px;
+}
+
+/* BUTTON */
+
+.send-btn{
+  margin-top:20px;
+  background:linear-gradient(135deg, #ffb300, #ff9800);
+  color:white;
+  border:none;
+  padding:12px 24px;
+  border-radius:25px;
+  font-size:13px;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.send-btn:hover{
+  transform:translateY(-2px);
+  opacity:0.9;
+}
+
+/* ================= MAP ================= */
+
+.map{
+  margin-top:50px;
+}
+
+.map iframe{
+  width:100%;
+  height:320px;
+  border:none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+  .contact-container{
+    flex-direction:column;
+  }
+
+  .input-row{
+    flex-direction:column;
+  }
+
+}

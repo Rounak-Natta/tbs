@@ -1,5 +1,5 @@
 {
-  "name": "TBS",
+  "name": "tbs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -23,5 +23,9 @@
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
