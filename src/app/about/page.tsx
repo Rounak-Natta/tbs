@@ -1,13 +1,16 @@
 "use client";
 
+import Form from "@/components/sections/Form";
+import Footer from "@/components/layout/Footer";
+
 export default function AboutPage() {
   return (
     <>
       {/* HERO */}
-      <div className="about-hero">
-        <div className="about-hero-overlay"></div>
-        <h2>About Us</h2>
-      </div>
+      <div className="gallery-hero">
+          <div className="gallery-overlay"></div>
+          <h2>About Us</h2>
+        </div>
 
       {/* MAIN SECTION */}
       <section className="about-main">
@@ -28,7 +31,7 @@ export default function AboutPage() {
 
             <p>
               The Bandhan School has evolved with the idea of promoting equality
-              in education and leaving its mark for a lifetime.
+              in education and leaving its mark for a lifetime. 
             </p>
 
             <p>
@@ -82,6 +85,7 @@ export default function AboutPage() {
           <p>Embrace the principles of humanism, internationalism and idealism.</p>
         </div>
       </section>
+      
 
       {/* ================= SYMBOL ================= */}
       <section className="symbol-section">
@@ -154,6 +158,16 @@ export default function AboutPage() {
         </div>
 
       </section>
+
+      <div className="admission-bottom text-center">
+        GROWING WITH EXCELLENCE <br />
+        STRONG FOUNDATIONS START HERE
+      </div>
+
+      <br /><br />
+
+      <Form />
+      <Footer />
 
     </>
   );
