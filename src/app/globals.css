@@ -2082,3 +2082,18 @@ CONTACT SECTION (FINAL DESIGN)
 .backToTop:hover {
   transform: scale(1.1);
 }
+.infra-item {
+  transition: transform 0.3s ease;
+}
+
+.infra-right img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* smoother rendering */
+.infra-left,
+.infra-right {
+  will-change: transform, opacity;
+}
