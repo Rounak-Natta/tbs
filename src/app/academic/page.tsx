@@ -1,65 +1,122 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Form from "@/components/sections/Form";
 import Footer from "@/components/layout/Footer";
 
+/* ================= ANIMATION CONFIG ================= */
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 60 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+const stagger = {
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 25 },
+  show: { opacity: 1, y: 0 },
+};
+
+/* ================= PAGE ================= */
+
 export default function AcademicPage() {
   return (
-    <div className="academic-page">
+    <motion.div
+      className="academic-page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
 
       {/* ================= HERO ================= */}
       <section className="academic-hero">
         <div className="overlay" />
-        <h1>Academic</h1>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Academic
+        </motion.h1>
       </section>
 
       <div className="academic-content">
 
         {/* ================= INTRO ================= */}
-       <section className="academic-row">
+        <motion.section
+          className="academic-row"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          <div className="academic-image">
+            <Image
+              src="/gallery9.jpg"
+              alt="Academic"
+              width={1200}
+              height={450}
+              className="smooth-image"
+            />
+          </div>
 
-  {/* IMAGE */}
-  <div className="academic-image">
-    <Image
-      src="/gallery9.jpg"
-      alt="Academic"
-      width={1200}
-      height={450}
-    />
-  </div>
+          <motion.div
+            className="academic-content-box"
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            <motion.p variants={item}>
+              At The Bandhan School, children are taught with utmost care.
+              Learning is a continuous and holistic process that blends knowledge,
+              revision, and real-world application.
+            </motion.p>
 
-  {/* CONTENT */}
-  <div className="academic-content-box">
+            <motion.p variants={item}>
+              We focus on developing listening, speaking, reading, and writing
+              skills while instilling strong moral values. Assessment is conducted
+              through continuous evaluation methods.
+            </motion.p>
 
+            <motion.p variants={item}>
+              Progress is shared regularly with parents, ensuring transparency and
+              collaborative growth as per CBSE guidelines.
+            </motion.p>
+          </motion.div>
+        </motion.section>
 
-    <p>
-      At The Bandhan School, children are taught with utmost care. Learning is a
-      continuous and holistic process that blends knowledge, revision, and real-world
-      application.
-    </p>
+        {/* ================= METHODOLOGY ================= */}
+        <motion.h2
+          className="methodology-title"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          TEACHING METHODOLOGY
+        </motion.h2>
 
-    <p>
-      We focus on developing listening, speaking, reading, and writing skills while
-      instilling strong moral values. Assessment is conducted through continuous
-      evaluation methods including comprehension, vocabulary, fluency, and conceptual
-      understanding.
-    </p>
-
-    <p>
-      Progress is shared regularly with parents, ensuring transparency and
-      collaborative growth as per CBSE guidelines.
-    </p>
-
-  </div>
-
-</section>
-
-        {/* ================= TEACHING METHODOLOGY ================= */}
-        <h2 className="methodology-title">TEACHING METHODOLOGY</h2>
-
-        <section className="methodology-box-new">
-
+        <motion.section
+          className="methodology-box-new"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           <div className="left-panel-new">
             <div className="panel-item">SCHOLASTIC AREAS</div>
             <div className="panel-item">
@@ -68,22 +125,38 @@ export default function AcademicPage() {
             <div className="panel-item">CO-SCHOLASTIC AREAS</div>
           </div>
 
-          <div className="right-panel-new">
-            <ul>
-              <li>Learning will be made fascinating, pleasurable and activity-oriented at all levels.</li>
-              <li>Monthly remarks will be uploaded for parental review of the child’s performance.</li>
-              <li>Day-wise Monthly Planner including co-scholastic activities.</li>
-              <li>Activity-based teaching through presentations and practical learning.</li>
-              <li>Focus on LSRW — Listening, Speaking, Reading & Writing skills.</li>
-              <li>Development of thinking, oratory, and mental aptitude through activities.</li>
-            </ul>
-          </div>
+          <motion.div
+            className="right-panel-new"
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            <motion.ul>
+              {[
+                "Learning will be made fascinating, pleasurable and activity-oriented.",
+                "Monthly remarks will be uploaded for parental review.",
+                "Day-wise Monthly Planner including co-scholastic activities.",
+                "Activity-based teaching through presentations and practical learning.",
+                "Focus on LSRW — Listening, Speaking, Reading & Writing skills.",
+                "Development of thinking and mental aptitude through activities.",
+              ].map((text, i) => (
+                <motion.li key={i} variants={item}>
+                  {text}
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+        </motion.section>
 
-        </section>
-
-        {/* ================= SCHOOL CURRICULUM ================= */}
-        <section className="school-section-new">
-
+        {/* ================= SCHOOL ================= */}
+        <motion.section
+          className="school-section-new"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           <div className="school-container">
 
             <div className="school-left">
@@ -92,109 +165,144 @@ export default function AcademicPage() {
               </h2>
             </div>
 
-           
+            <motion.div
+              className="school-right"
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              <motion.p variants={item}>
+                As per NEP 2020, our main emphasis is on Foundational Literacy
+                and Numeracy embedding English and Mathematics skills.
+              </motion.p>
 
-            <div className="school-right">
-
-              <p className="school-top-text">
-                As per NEP 2020, our main emphasis is on Foundational Literacy and
-                Numeracy embedding English and Mathematics skills.
-              </p>
-
-              <ul>
-                <li>Fosters belonging, values, character and cultural pride</li>
-                <li>Prepares students for the digital world</li>
-                <li>Focus on cognitive, emotional, social and communication growth</li>
-                <li>Rooted locally with a global perspective</li>
-              </ul>
-
-            </div>
+              <motion.ul>
+                {[
+                  "Fosters belonging, values and cultural pride",
+                  "Prepares students for the digital world",
+                  "Focus on cognitive and emotional growth",
+                  "Rooted locally with a global perspective",
+                ].map((text, i) => (
+                  <motion.li key={i} variants={item}>
+                    {text}
+                  </motion.li>
+                ))}
+              </motion.ul>
+            </motion.div>
 
           </div>
-
-        </section>
+        </motion.section>
 
       </div>
 
       {/* ================= ASSESSMENT ================= */}
-      <section className="assessment-section">
+      <motion.section
+        className="assessment-section"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         <h2>ASSESSMENT</h2>
 
-        <div className="assessment-grid">
-
-          <div className="assessment-card">
-            <h3>PRE PRIMARY</h3>
-            <p>
-              No formal exams. Continuous evaluation based on participation,
-              development, and activity performance.
-            </p>
-          </div>
-
-          <div className="assessment-card">
-            <h3>PRIMARY (I–IV)</h3>
-            <p>
-              CBSE-based curriculum including arts, music, yoga, computers,
-              and physical activities.
-            </p>
-          </div>
-
-          <div className="assessment-card">
-            <h3>SCHOLASTIC</h3>
-            <p>
-              Term 1: PT + Activities + Half Yearly <br />
-              Term 2: PT + Activities + Final Exam
-            </p>
-          </div>
-
-          <div className="assessment-card">
-            <h3>CO-SCHOLASTIC</h3>
-            <p>
-              Evaluation of life skills, discipline, creativity, and overall
-              personality development.
-            </p>
-          </div>
-
-        </div>
-      </section>
+        <motion.div
+          className="assessment-grid"
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          {[
+            {
+              title: "PRE PRIMARY",
+              text: "No formal exams. Continuous evaluation based on participation.",
+            },
+            {
+              title: "PRIMARY (I–IV)",
+              text: "CBSE-based curriculum including arts, music, yoga and activities.",
+            },
+            {
+              title: "SCHOLASTIC",
+              text: "Term 1: PT + Half Yearly | Term 2: PT + Final Exam",
+            },
+            {
+              title: "CO-SCHOLASTIC",
+              text: "Evaluation of life skills and personality development.",
+            },
+          ].map((card, i) => (
+            <motion.div key={i} className="assessment-card" variants={item}>
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.section>
 
       {/* ================= PEDAGOGY ================= */}
-      <section className="pedagogy-section">
+      <motion.section
+        className="pedagogy-section"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <div className="pedagogy-container">
 
-  <div className="pedagogy-container">
+          <motion.div
+            className="pedagogy-content"
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            <motion.h2 variants={item}>Teaching Pedagogy</motion.h2>
 
-    {/* LEFT CONTENT */}
-    <div className="pedagogy-content">
-      <h2>Teaching Pedagogy</h2>
+            <motion.p variants={item}>
+              Our curriculum fosters curiosity, creativity, and critical thinking.
+              It ensures a structured and progressive learning journey.
+            </motion.p>
 
-      <p>
-        Our curriculum fosters curiosity, creativity, and critical thinking.
-        It ensures a progressive and structured learning journey, empowering
-        students to grow in a nurturing and inclusive environment.
-      </p>
+            <motion.div className="pedagogy-points">
+              {[
+                "✔ Experiential Learning",
+                "✔ Skill-Based Development",
+                "✔ Student-Centric Approach",
+              ].map((point, i) => (
+                <motion.div key={i} variants={item}>
+                  {point}
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
 
-      <div className="pedagogy-points">
-        <div>✔ Experiential Learning</div>
-        <div>✔ Skill-Based Development</div>
-        <div>✔ Student-Centric Approach</div>
-      </div>
-    </div>
+          <motion.div
+            className="pedagogy-visual"
+            variants={fadeUp}
+          >
+            <Image
+              src="/gallery6.jpg"
+              alt="Pedagogy"
+              width={500}
+              height={320}
+              className="smooth-image"
+            />
+          </motion.div>
 
-    {/* RIGHT IMAGE */}
-    <div className="pedagogy-visual">
-      <Image
-        src="/gallery6.jpg"
-        alt="Pedagogy"
-        width={500}
-        height={320}
-      />
-    </div>
+        </div>
+      </motion.section>
 
-  </div>
+      {/* ================= FORM ================= */}
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <Form />
+      </motion.div>
 
-</section>
-
-      <Form />
       <Footer />
-    </div>
+    </motion.div>
   );
-} 
+}
