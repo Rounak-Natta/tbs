@@ -132,7 +132,7 @@ select {
   gap: 8px;
   background: var(--tbs-yellow);
   font-weight: 500;
-  min-width: fit-content; /* Prevents content from being squished */
+  min-width: fit-content; 
 }
 
 
@@ -146,7 +146,7 @@ select {
   justify-content: flex-end;
   align-items: center;
   gap: 15px;
-  flex-wrap: wrap; /* Allows wrapping on small screens */
+  flex-wrap: wrap; 
 }
 
 
@@ -158,7 +158,7 @@ select {
   align-items: center;
   gap: 6px;
   font-weight: 500;
-  white-space: nowrap; /* Prevents text wrapping inside links */
+  white-space: nowrap; 
 }
 
 
@@ -189,9 +189,9 @@ select {
   align-items: center;
   justify-content: space-between;
   background: white;
-  flex-wrap: wrap; /* Allows navbar to wrap on smaller screens */
+  flex-wrap: wrap; 
   position: relative;
-  z-index: 9; /* Below topbar but above hero background */
+  z-index: 9; 
 }
 
 
@@ -204,7 +204,7 @@ select {
 .nav-logo img{
   height: 120px;
   width: auto;
-  max-width: 100%; /* Ensures logo doesn't overflow */
+  max-width: 100%; 
 } 
 
 /* MENU */
@@ -215,14 +215,14 @@ select {
   gap: 35px;
   font-weight: 500;
   font-size: 15px;
-  flex-wrap: wrap; /* Allows menu items to wrap */
+  flex-wrap: wrap; 
   justify-content: center;
 }
 
 .nav-menu a {
   color: #111;
   transition: color 0.25s ease;
-  white-space: nowrap; /* Prevents text wrapping in menu items */
+  white-space: nowrap; 
 }
 
 .nav-menu a:hover {
@@ -780,7 +780,7 @@ select {
   
   .about-section {
     padding: 0 20px;
-    margin-top: 180px; /* Push about section down to account for stacked cards */
+    margin-top: 180px; 
   }
 }
 
@@ -2198,6 +2198,7 @@ ABOUT US
   align-items: center;
   justify-content: center;
   font-size: 22px;
+  padding: 15px;
 }
 
 .unique-content h3 {
@@ -2231,7 +2232,8 @@ ABOUT US
     text-align: center;
   }
 }
-/* ================= MOTTO ================= */
+
+
 .motto-section {
   background:
     linear-gradient(135deg, rgba(46,125,50,0.9), rgba(43,122,63,0.9)),
@@ -2272,11 +2274,11 @@ ABOUT US
 }
 
 .symbol-logo img {
-  width: 160px;
+  width: 960px;
 }
 
 .symbol-content h3 {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
   margin-bottom: 15px;
 }
@@ -2317,7 +2319,7 @@ ABOUT US
 
 .vision-block h4 {
   color: #1f6b35;
-  font-size: 16px;
+  font-size: 26px;
   margin-bottom: 8px;
 }
 
@@ -2343,5 +2345,426 @@ ABOUT US
 
   .vision-image img {
     width: 100%;
+  }
+}
+/* =====================================================
+GLOBAL
+===================================================== */
+
+.academic-page {
+  background: #f5f5f5;
+  overflow-x: hidden;
+}
+
+/* =====================================================
+HERO
+===================================================== */
+
+.academic-hero {
+  position: relative;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('/tbs-her.jpeg') center/cover no-repeat;
+}
+
+.academic-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.academic-hero h1 {
+  position: relative;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* =====================================================
+CONTENT WRAPPER
+===================================================== */
+
+.academic-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 70px 20px;
+}
+
+/* =====================================================
+INTRO
+===================================================== */
+
+/* ===== ROW ===== */
+.academic-row {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 60px;
+
+  background: linear-gradient(to bottom, #f8f8f8, #eeeeee);
+  padding: 40px;       /* spacing inside */
+  border-radius: 16px; /* soft edges */
+}
+
+/* ===== IMAGE ===== */
+.academic-image img {
+  width: 100%;
+  border-radius: 14px; /* less aggressive */
+  transition: transform 0.3s ease;
+}
+
+/* very subtle hover (optional) */
+.academic-image img:hover {
+  transform: scale(1.01);
+}
+
+/* ===== TEXT ===== */
+.academic-text {
+  max-width: 520px; /* improves readability */
+}
+
+.academic-text p {
+  font-size: 14.5px; /* slightly smaller */
+  line-height: 1.8;
+  color: #555; /* softer than #333 */
+  font-weight: 400; /* ensure not bold */
+}
+
+/* =====================================================
+TEACHING METHODOLOGY (PIXEL PERFECT)
+===================================================== */
+
+.methodology-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  color: #2e7d32;
+  margin-bottom: 50px;
+}
+
+.methodology-box-new {
+  display: flex;
+  border-radius: 30px;
+  overflow: hidden;
+  margin-bottom: 90px;
+}
+
+/* LEFT PANEL */
+
+.left-panel-new {
+  width: 32%;
+  background: #2e7d32;
+  color: #fff;
+  padding: 45px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.left-panel-new::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 28px solid transparent;
+  border-bottom: 28px solid transparent;
+  border-left: 30px solid #2e7d32;
+}
+
+.panel-item {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* RIGHT PANEL */
+
+.right-panel-new {
+  width: 68%;
+  background: #f4c400;
+  padding: 40px 50px;
+}
+
+.right-panel-new ul {
+  padding-left: 20px;
+}
+
+.right-panel-new li {
+  font-size: 14px;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+/* =====================================================
+SCHOOL CURRICULUM (PIXEL PERFECT)
+===================================================== */
+
+.school-section-new {
+  width: 100vw; /* force full viewport width */
+  margin-left: calc(50% - 50vw); /* break out of centered layout */
+  background: #e6e1d6;
+  padding: 80px 0;
+}
+
+.school-container {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: stretch;
+  gap: 40px;
+  padding: 0 60px; /* important for spacing */
+}
+
+/* LEFT TITLE */
+.school-left {
+  width: 30%;
+  padding-right: 30px;
+  border-right: 2px solid #bdbdbd;
+  position: relative;
+
+  display: flex;           /* ensures full height usage */
+  align-items: flex-start; /* keep text top aligned */
+}
+.school-left::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: -6px; /* sits on the border */
+  width: 10px;
+  height: 10px;
+  background: #f4c400;
+  border-radius: 50%;
+}
+.school-left h2 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #2e7d32;
+  line-height: 1.2;
+}
+
+/* DIVIDER */
+
+.school-divider {
+  width: 2px;
+  background: #bdbdbd;
+  position: relative;
+}
+
+.school-divider .dot {
+  position: absolute;
+  top: 12px;
+  left: -5px;
+  width: 10px;
+  height: 10px;
+  background: #f4c400;
+  border-radius: 50%;
+}
+
+/* RIGHT CONTENT */
+
+.school-right {
+  width: 70%;
+}
+
+.school-top-text {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.school-right ul {
+  list-style: none;
+  padding: 0;
+}
+
+.school-right li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.school-right li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: #2e7d32;
+}
+
+/* =====================================================
+ASSESSMENT
+===================================================== */
+
+.assessment-section {
+  background:
+    linear-gradient(135deg, rgba(46,125,50,0.9), rgba(43,122,63,0.9)),
+    url('/bgpattern.png');
+
+  background-size: cover, auto;
+  background-position: center;
+  background-repeat: no-repeat, repeat;
+
+  padding: 80px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.assessment-section h2 {
+  font-size: 28px;
+  margin-bottom: 50px;
+}
+
+/* GRID */
+
+.assessment-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+
+.assessment-card {
+  padding: 30px;
+  background: #f1f1f1;
+  color: #333;
+  border-radius: 20px;
+  text-align: left;
+  transition: 0.3s ease;
+}
+
+.assessment-card:hover {
+  transform: translateY(-6px);
+}
+
+.assessment-card h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #2e7d32;
+}
+
+/* =====================================================
+PEDAGOGY
+===================================================== */
+
+/* ===== SECTION ===== */
+
+.pedagogy-section {
+  padding: 100px 20px;
+  background: linear-gradient(to bottom, #f8f8f8, #eeeeee);
+}
+
+/* ===== CONTAINER ===== */
+
+.pedagogy-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+/* ===== LEFT CONTENT ===== */
+
+.pedagogy-content {
+  flex: 1;
+}
+
+.pedagogy-content h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.pedagogy-content p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+/* POINTS */
+
+.pedagogy-points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pedagogy-points div {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2e7d32;
+}
+
+/* ===== IMAGE ===== */
+
+.pedagogy-visual {
+  flex: 1;
+  position: relative;
+}
+
+.pedagogy-visual img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease;
+}
+
+.pedagogy-visual img:hover {
+  transform: scale(1.04);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+  .pedagogy-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pedagogy-content p {
+    text-align: center;
+  }
+}
+
+/* =====================================================
+RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .academic-row,
+  .pedagogy-row,
+  .school-container {
+    flex-direction: column;
+  }
+
+  .left-panel-new,
+  .right-panel-new,
+  .school-left,
+  .school-right {
+    width: 100%;
+  }
+
+  .left-panel-new::after {
+    display: none;
+  }
+
+  .assessment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .methodology-box-new {
+    border-radius: 20px;
   }
 }

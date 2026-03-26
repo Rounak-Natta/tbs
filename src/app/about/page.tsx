@@ -1,5 +1,5 @@
 "use client";
-
+import { motion } from "framer-motion";
 import Form from "@/components/sections/Form";
 import Footer from "@/components/layout/Footer";
 
@@ -94,13 +94,13 @@ export default function AboutPage() {
 
           {/* LEFT LOGO */}
           <div className="symbol-logo">
-            <img src="/logo.png" alt="Bandhan Logo" />
+            <img src="/aboutlogo.png" alt="Bandhan Logo" />
           </div>
 
           {/* RIGHT TEXT */}
           <div className="symbol-content">
             <h3>
-              THE SYMBOL OF <span>BONDING</span>– LOGO
+              THE SYMBOL OF <span>BONDING</span> – LOGO
             </h3>
 
             <p>

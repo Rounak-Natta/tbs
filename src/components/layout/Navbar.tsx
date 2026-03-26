@@ -20,7 +20,7 @@ export default function Navbar() {
       <ul className="nav-menu">
         <li><Link href="/about">About Us</Link></li>
         <li><Link href="/infrastructure">Infrastructure</Link></li>
-        <li><Link href="#">Academic</Link></li>
+        <li><Link href="/academic">Academic</Link></li>
         <li><Link href="/gallery">Gallery</Link></li>
         <li><Link href="#">News Update</Link></li>
         <li><Link href="#">Career</Link></li>
