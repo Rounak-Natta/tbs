@@ -1,22 +1,26 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Form from "@/components/sections/Form";
 import Footer from "@/components/layout/Footer";
 
 /* ================= ANIMATION CONFIG ================= */
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 60 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
   },
 };
 
-const stagger = {
+const stagger: Variants = {
+  hidden: {},
   show: {
     transition: {
       staggerChildren: 0.15,
@@ -24,9 +28,12 @@ const stagger = {
   },
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 25 },
-  show: { opacity: 1, y: 0 },
+  show: {
+    opacity: 1,
+    y: 0,
+  },
 };
 
 /* ================= PAGE ================= */
@@ -39,7 +46,6 @@ export default function AcademicPage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-
       {/* ================= HERO ================= */}
       <section className="academic-hero">
         <div className="overlay" />
@@ -54,7 +60,6 @@ export default function AcademicPage() {
       </section>
 
       <div className="academic-content">
-
         {/* ================= INTRO ================= */}
         <motion.section
           className="academic-row"
@@ -158,7 +163,6 @@ export default function AcademicPage() {
           viewport={{ once: true }}
         >
           <div className="school-container">
-
             <div className="school-left">
               <h2>
                 SCHOOL <br /> CURRICULUM
@@ -190,10 +194,8 @@ export default function AcademicPage() {
                 ))}
               </motion.ul>
             </motion.div>
-
           </div>
         </motion.section>
-
       </div>
 
       {/* ================= ASSESSMENT ================= */}
@@ -248,7 +250,6 @@ export default function AcademicPage() {
         viewport={{ once: true }}
       >
         <div className="pedagogy-container">
-
           <motion.div
             className="pedagogy-content"
             variants={stagger}
@@ -276,10 +277,7 @@ export default function AcademicPage() {
             </motion.div>
           </motion.div>
 
-          <motion.div
-            className="pedagogy-visual"
-            variants={fadeUp}
-          >
+          <motion.div className="pedagogy-visual" variants={fadeUp}>
             <Image
               src="/gallery6.jpg"
               alt="Pedagogy"
@@ -288,7 +286,6 @@ export default function AcademicPage() {
               className="smooth-image"
             />
           </motion.div>
-
         </div>
       </motion.section>
 
