@@ -28,7 +28,7 @@ export default function Navbar() {
 
       {/* RIGHT - BUTTON GROUP */}
       <div className="nav-buttons">
-        <Link href="#" className="btn admission">Admission</Link>
+        <Link href="/admission" className="btn admission">Admission</Link>
         <Link href="/contact" className="btn contact">Contact Us</Link>
       </div>
 
